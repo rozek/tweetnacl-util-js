@@ -3,9 +3,11 @@
   "version": "0.15.1",
   "description": "String encoding utilitlies extracted from TweetNaCl.js",
   "main": "nacl-util.js",
+  "module": "nacl-util.esm.js",
   "types": "nacl-util.d.ts",
   "scripts": {
-    "build": "uglifyjs nacl-util.js -c -m -o nacl-util.min.js",
+  	"build": "cp nacl-util.js nacl-util.esm.js && echo '\nexport default nacl_util;' >> nacl-util.esm.js",
+    "build-iife": "uglifyjs nacl-util.js -c -m -o nacl-util.min.js",
     "test": "tape test/*.js; yarn run build-browser-test",
     "build-browser-test": "browserify test/test.js > test/browser/bundle.js"
   },
