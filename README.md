@@ -3,6 +3,10 @@ tweetnacl-util-js
 
 String encoding utilities extracted from early versions of <https://github.com/dchest/tweetnacl-js>
 
+> **Nota bene**: this repository is basically a copy of the [original](https://github.com/dchest/tweetnacl-util-js) with some changes inspired by tweetnacl-js pull request [#186](https://github.com/dchest/tweetnacl-js/pull/186) which make this module ES6 compatible and allows you to `import nacl_util from 'nacl-util.esm.js'`.
+>
+> As a consequence, `npm run build` will now build ESM modules, while `npm run build-iife` has to be used in order to build the old version of this module.
+
 Notice
 ------
 
