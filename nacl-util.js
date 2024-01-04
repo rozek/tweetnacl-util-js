@@ -1,17 +1,17 @@
 // Written in 2014-2016 by Dmitry Chestnykh and Devi Mandiri.
 // Public domain.
-(function(root, f) {
+var nacl_util = {}
+;(function(root, f) {
   'use strict';
-  if (typeof module !== 'undefined' && module.exports) module.exports = f();
-  else if (root.nacl) root.nacl.util = f();
+  if (typeof module !== 'undefined' && module.exports) module.exports = f(nacl_util);
+  else if (typeof root === 'undefined') f(nacl_util);
+  else if (root.nacl) root.nacl.util = f(nacl_util);
   else {
     root.nacl = {};
-    root.nacl.util = f();
+    root.nacl.util = f(nacl_util);
   }
-}(this, function() {
+}(this, function(util) {
   'use strict';
-
-  var util = {};
 
   function validateBase64(s) {
     if (!(/^(?:[A-Za-z0-9+\/]{2}[A-Za-z0-9+\/]{2})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/.test(s))) {
@@ -77,5 +77,4 @@
   }
 
   return util;
-
 }));
